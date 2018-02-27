@@ -1,0 +1,103 @@
+{
+  "name": "parse-server-node-mailer-adapter",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "keywords": [
+    "parse",
+    "mail",
+    "email",
+    "adapter",
+    "templates"
+  ],
+  "author": "Ben Briggs <ben.briggs@thedistance.co.uk>",
+  "license": "MIT",
+  "scripts": {
+    "docs": "documentation readme src --section API --quiet",
+    "lint": "xo",
+    "precommit": "lint-staged",
+    "prepare": "npm run lint && npm run transpile && npm run docs",
+    "test": "jest",
+    "transpile": "babel src --out-dir dist --ignore *.test.js"
+  },
+  "dependencies": {
+    "email-templates": "^3.4.0",
+    "nodemailer": "^4.6.0",
+    "pify": "^3.0.0",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.1",
+    "documentation": "^5.4.0",
+    "eslint-config-prettier": "^2.9.0",
+    "husky": "^0.14.3",
+    "jest": "^22.4.2",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.10.2",
+    "xo": "^0.20.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": 6
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  },
+  "xo": {
+    "extends": [
+      "prettier"
+    ],
+    "rules": {
+      "import/no-unassigned-import": [
+        "error",
+        {
+          "allow": [
+            "**/*.css"
+          ]
+        }
+      ],
+      "unicorn/catch-error-name": "off",
+      "unicorn/explicit-length-check": "off",
+      "unicorn/filename-case": [
+        "error",
+        {
+          "case": "camelCase"
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.test.js"
+        ],
+        "env": "jest"
+      }
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should handle multiple email addresses 1`] = `
+Object {
+  "address": "mailserver@example.com",
+  "name": "",
+}
+`;
+
+exports[`should handle multiple email addresses 2`] = `
+Array [
+  Object {
+    "address": "client@example.com",
+    "name": "",
+  },
+  Object {
+    "address": "client2@example.com",
+    "name": "",
+  },
+]
+`;
+
+exports[`should handle multiple email addresses 3`] = `"Test message"`;
+
+exports[`should handle multiple email addresses 4`] = `"Hi there"`;
+
+exports[`should send email 1`] = `
+Object {
+  "address": "mailserver@example.com",
+  "name": "",
+}
+`;
+
+exports[`should send email 2`] = `
+Array [
+  Object {
+    "address": "client@example.com",
+    "name": "",
+  },
+]
+`;
+
+exports[`should send email 3`] = `"Test message"`;
+
+exports[`should send email 4`] = `"Hi there"`;
+
+exports[`should send email with names 1`] = `
+Object {
+  "address": "mailserver@example.com",
+  "name": "Test App",
+}
+`;
+
+exports[`should send email with names 2`] = `
+Array [
+  Object {
+    "address": "client@example.com",
+    "name": "Client",
+  },
+]
+`;
+
+exports[`should send password reset email 1`] = `
+Object {
+  "address": "mailserver@example.com",
+  "name": "",
+}
+`;
+
+exports[`should send password reset email 2`] = `
+Array [
+  Object {
+    "address": "client@example.com",
+    "name": "",
+  },
+]
+`;
+
+exports[`should send password reset email 3`] = `"Password reset request for TestApp"`;
+
+exports[`should send password reset email 4`] = `
+"Hello,
+
+You've requested a password reset for TestApp.
+
+To reset your password, please click the link below.
+
+https://example.com/reset-password [https://example.com/reset-password]
+
+If you didn't request this email you may safely ignore it.
+
+Thanks,
+
+The TestApp Team"
+`;
+
+exports[`should send password reset email 5`] = `
+"
+<p>Hello,</p>
+<p>You've requested a password reset for TestApp.</p>
+<p>To reset your password, please click the link below.</p>
+<p><a href=\\"https://example.com/reset-password\\">https://example.com/reset-password</a></p>
+<p>If you didn't request this email you may safely ignore it.</p>
+<p>Thanks,</p>
+<p>The TestApp Team</p>"
+`;
+
+exports[`should send verification email 1`] = `
+Object {
+  "address": "mailserver@example.com",
+  "name": "",
+}
+`;
+
+exports[`should send verification email 2`] = `
+Array [
+  Object {
+    "address": "client@example.com",
+    "name": "",
+  },
+]
+`;
+
+exports[`should send verification email 3`] = `"Please confirm your email address for TestApp"`;
+
+exports[`should send verification email 4`] = `
+"Hello,
+
+You've received this message because your email address has been registered with
+TestApp. Please confirm your email by clicking the link below.
+
+https://example.com/confirm-account [https://example.com/confirm-account]
+
+Thanks,
+
+The TestApp Team"
+`;
+
+exports[`should send verification email 5`] = `
+"
+<p>Hello,</p>
+<p>
+  You've received this message because your email address has been registered
+  with TestApp. Please confirm your email by clicking the link below.
+</p>
+<p><a href=\\"https://example.com/confirm-account\\">https://example.com/confirm-account</a></p>
+<p>Thanks,</p>
+<p>The TestApp Team</p>"
+`;
