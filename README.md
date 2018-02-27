@@ -1,10 +1,10 @@
-# parse-server-node-mailer-adapter
+# parse-server-mailer-adapter
 
 ## Install
 
 With npm do:
 
-    npm install parse-server-node-mailer-adapter
+    npm install parse-server-mailer-adapter
 
 ## API
 
@@ -36,7 +36,7 @@ do the heavy lifting.
     -   `options.transport` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** This is passed straight through to
         `nodemailer.createTransport`, so you may use any email sending methods.
     -   `options.templates` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Specify the base path for your templates here; see the `email-templates`
-        documentation for more details. (optional, default `parse-server-node-mailer-adapter/templates`)
+        documentation for more details. (optional, default `parse-server-mailer-adapter/templates`)
 
 **Examples**
 
@@ -51,7 +51,7 @@ const SES = new aws.SES({ apiVersion: '2010-12-01' });
 const server = ParseServer({
   // ... other options
   emailAdapter: {
-    module: 'parse-server-node-mailer-adapter',
+    module: 'parse-server-mailer-adapter',
     options: {
       from: 'noreply@example.com'
       transport: { SES }
@@ -68,7 +68,7 @@ const ParseServer = require('parse-server').ParseServer;
 const server = ParseServer({
   // ... other options
   emailAdapter: {
-    module: 'parse-server-node-mailer-adapter',
+    module: 'parse-server-mailer-adapter',
     options: {
       from: 'noreply@example.com'
       transport: { jsonTransport: true }
@@ -85,7 +85,7 @@ const ParseServer = require('parse-server').ParseServer;
 const server = ParseServer({
   // ... other options
   emailAdapter: {
-    module: 'parse-server-node-mailer-adapter',
+    module: 'parse-server-mailer-adapter',
     options: {
       from: 'noreply@example.com'
       transport: {

@@ -1,5 +1,5 @@
 {
-  "name": "parse-server-node-mailer-adapter",
+  "name": "parse-server-mailer-adapter",
   "version": "1.0.0",
   "main": "dist/index.js",
   "files": [

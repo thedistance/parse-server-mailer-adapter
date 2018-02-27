@@ -3,7 +3,7 @@
  * @Date:   2018-02-23T16:54:27+00:00
  * @Email:  ben.briggs@thedistance.co.uk
  * @Last modified by:   benbriggs
- * @Last modified time: 2018-02-27T09:27:05+00:00
+ * @Last modified time: 2018-02-27T09:55:49+00:00
  * @Copyright: The Distance
  */
 
@@ -32,7 +32,7 @@ const getEmailAddress = obj => obj.get('email') || obj.get('username');
  * @param {Boolean} [options.send] Passed through to `email-templates`
  * and will deactivate email sending in development & test environments. Set to
  * `true` if you want to send emails when testing your application.
- * @param {String}  [options.templates=parse-server-node-mailer-adapter/templates]
+ * @param {String}  [options.templates=parse-server-mailer-adapter/templates]
  * Specify the base path for your templates here; see the `email-templates`
  * documentation for more details.
  * @param {Object}  options.transport This is passed straight through to
@@ -49,7 +49,7 @@ const getEmailAddress = obj => obj.get('email') || obj.get('username');
  * const server = ParseServer({
  *   // ... other options
  *   emailAdapter: {
- *     module: 'parse-server-node-mailer-adapter',
+ *     module: 'parse-server-mailer-adapter',
  *     options: {
  *       from: 'noreply@example.com'
  *       transport: { SES }
@@ -62,7 +62,7 @@ const getEmailAddress = obj => obj.get('email') || obj.get('username');
  * const server = ParseServer({
  *   // ... other options
  *   emailAdapter: {
- *     module: 'parse-server-node-mailer-adapter',
+ *     module: 'parse-server-mailer-adapter',
  *     options: {
  *       from: 'noreply@example.com'
  *       transport: { jsonTransport: true }
@@ -75,7 +75,7 @@ const getEmailAddress = obj => obj.get('email') || obj.get('username');
  * const server = ParseServer({
  *   // ... other options
  *   emailAdapter: {
- *     module: 'parse-server-node-mailer-adapter',
+ *     module: 'parse-server-mailer-adapter',
  *     options: {
  *       from: 'noreply@example.com'
  *       transport: {
