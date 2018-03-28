@@ -27,11 +27,12 @@
     "email-templates": "^3.4.0",
     "nodemailer": "^4.6.0",
     "pify": "^3.0.0",
-    "pug": "^2.0.0-rc.4"
+    "pug": "^2.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "documentation": "^5.4.0",
     "eslint-config-prettier": "^2.9.0",
@@ -66,7 +67,8 @@
       ]
     ],
     "plugins": [
-      "add-module-exports"
+      "add-module-exports",
+      "transform-object-rest-spread"
     ]
   },
   "xo": {
