@@ -3,7 +3,7 @@
  * @Date:   2018-02-26T09:46:37+00:00
  * @Email:  ben.briggs@thedistance.co.uk
  * @Last modified by:   benbriggs
- * @Last modified time: 2018-02-27T09:23:15+00:00
+ * @Last modified time: 2018-03-28T14:20:39+01:00
  * @Copyright: The Distance
  */
 
@@ -60,7 +60,7 @@ test('should send email with names', () => {
       expect(from).toMatchSnapshot();
       expect(to).toMatchSnapshot();
     });
-})
+});
 
 test('should handle multiple email addresses', () => {
   const { sendMail } = adapter({
@@ -119,6 +119,60 @@ test('should send verification email', () => {
       username: 'client@example.com',
     }),
     link: 'https://example.com/confirm-account',
+  })
+    .then(getMessageParameters)
+    .then(({ from, to, subject, text, html, messageId }) => {
+      expect(from).toMatchSnapshot();
+      expect(to).toMatchSnapshot();
+      expect(subject).toMatchSnapshot();
+      expect(text).toMatchSnapshot();
+      expect(html).toMatchSnapshot();
+      expect(messageId).toEqual(expect.any(String));
+    });
+});
+
+test('should allow template email customisation', () => {
+  const { sendCustomEmail } = adapter({
+    from: 'mailserver@example.com',
+    transport: { jsonTransport: true },
+  });
+
+  return sendCustomEmail()({
+    template: 'verification',
+    message: {
+      to: 'client@example.com',
+    },
+    locals: {
+      appName: 'TestApp',
+      link: 'https://example.com/confirm-account',
+    },
+  })
+    .then(getMessageParameters)
+    .then(({ from, to, subject, text, html, messageId }) => {
+      expect(from).toMatchSnapshot();
+      expect(to).toMatchSnapshot();
+      expect(subject).toMatchSnapshot();
+      expect(text).toMatchSnapshot();
+      expect(html).toMatchSnapshot();
+      expect(messageId).toEqual(expect.any(String));
+    });
+});
+
+test('should allow template email customisation with a custom sender', () => {
+  const { sendCustomEmail } = adapter({
+    from: 'mailserver@example.com',
+    transport: { jsonTransport: true },
+  });
+
+  return sendCustomEmail({ from: 'noreply@mailserver.com' })({
+    template: 'verification',
+    message: {
+      to: 'client@example.com',
+    },
+    locals: {
+      appName: 'TestApp',
+      link: 'https://example.com/confirm-account',
+    },
   })
     .then(getMessageParameters)
     .then(({ from, to, subject, text, html, messageId }) => {

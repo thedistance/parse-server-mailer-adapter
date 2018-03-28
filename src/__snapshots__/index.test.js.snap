@@ -1,5 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should allow template email customisation 1`] = `
+Object {
+  "address": "mailserver@example.com",
+  "name": "",
+}
+`;
+
+exports[`should allow template email customisation 2`] = `
+Array [
+  Object {
+    "address": "client@example.com",
+    "name": "",
+  },
+]
+`;
+
+exports[`should allow template email customisation 3`] = `"Please confirm your email address for TestApp"`;
+
+exports[`should allow template email customisation 4`] = `
+"Hello,
+
+You've received this message because your email address has been registered with
+TestApp. Please confirm your email by clicking the link below.
+
+https://example.com/confirm-account [https://example.com/confirm-account]
+
+Thanks,
+
+The TestApp Team"
+`;
+
+exports[`should allow template email customisation 5`] = `
+"
+<p>Hello,</p>
+<p>
+  You've received this message because your email address has been registered
+  with TestApp. Please confirm your email by clicking the link below.
+</p>
+<p><a href=\\"https://example.com/confirm-account\\">https://example.com/confirm-account</a></p>
+<p>Thanks,</p>
+<p>The TestApp Team</p>"
+`;
+
+exports[`should allow template email customisation with a custom sender 1`] = `
+Object {
+  "address": "noreply@mailserver.com",
+  "name": "",
+}
+`;
+
+exports[`should allow template email customisation with a custom sender 2`] = `
+Array [
+  Object {
+    "address": "client@example.com",
+    "name": "",
+  },
+]
+`;
+
+exports[`should allow template email customisation with a custom sender 3`] = `"Please confirm your email address for TestApp"`;
+
+exports[`should allow template email customisation with a custom sender 4`] = `
+"Hello,
+
+You've received this message because your email address has been registered with
+TestApp. Please confirm your email by clicking the link below.
+
+https://example.com/confirm-account [https://example.com/confirm-account]
+
+Thanks,
+
+The TestApp Team"
+`;
+
+exports[`should allow template email customisation with a custom sender 5`] = `
+"
+<p>Hello,</p>
+<p>
+  You've received this message because your email address has been registered
+  with TestApp. Please confirm your email by clicking the link below.
+</p>
+<p><a href=\\"https://example.com/confirm-account\\">https://example.com/confirm-account</a></p>
+<p>Thanks,</p>
+<p>The TestApp Team</p>"
+`;
+
 exports[`should handle multiple email addresses 1`] = `
 Object {
   "address": "mailserver@example.com",

@@ -104,8 +104,11 @@ const server = ParseServer({
 ```
 
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)&lt;[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)>** Exposes `sendMail`, `sendPasswordResetEmail` and
-`sendVerificationEmail` for Parse's benefit, plus the `sendTemplateEmail`
-method for creating custom emails.
+`sendVerificationEmail` for Parse's benefit. In addition, there are two
+custom template methods; `sendTemplateEmail` allows you to specify a template
+and an object of local template variables, whereas `sendCustomEmail` allows
+you to pass global message variables (such as from address) as well as giving
+you full control of the options for the send handler.
 
 ## License
 

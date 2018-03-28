@@ -3,7 +3,7 @@
  * @Date:   2018-02-23T16:54:27+00:00
  * @Email:  ben.briggs@thedistance.co.uk
  * @Last modified by:   benbriggs
- * @Last modified time: 2018-02-27T09:55:49+00:00
+ * @Last modified time: 2018-03-28T14:21:08+01:00
  * @Copyright: The Distance
  */
 
@@ -38,8 +38,11 @@ const getEmailAddress = obj => obj.get('email') || obj.get('username');
  * @param {Object}  options.transport This is passed straight through to
  * `nodemailer.createTransport`, so you may use any email sending methods.
  * @returns {Object<Function>} Exposes `sendMail`, `sendPasswordResetEmail` and
- * `sendVerificationEmail` for Parse's benefit, plus the `sendTemplateEmail`
- * method for creating custom emails.
+ * `sendVerificationEmail` for Parse's benefit. In addition, there are two
+ * custom template methods; `sendTemplateEmail` allows you to specify a template
+ * and an object of local template variables, whereas `sendCustomEmail` allows
+ * you to pass global message variables (such as from address) as well as giving
+ * you full control of the options for the send handler.
  * @example <caption>Using the AWS SES adapter</caption>
  * const ParseServer = require('parse-server').ParseServer;
  * const aws = require('aws-sdk');
@@ -114,11 +117,9 @@ const nodeMailerAdapter = ({
       attachments,
     });
 
-  const sendTemplateEmail = template => locals =>
+  const sendCustomEmail = (messageOptions = {}) => localMessageOptions =>
     new Email({
-      message: {
-        from,
-      },
+      message: { from, ...messageOptions },
       transport: transporter,
       send,
       views: {
@@ -127,7 +128,10 @@ const nodeMailerAdapter = ({
           extension: engine,
         },
       },
-    }).send({
+    }).send(localMessageOptions);
+
+  const sendTemplateEmail = template => locals =>
+    sendCustomEmail()({
       template,
       message: {
         to: getEmailAddress(locals.user),
@@ -140,6 +144,7 @@ const nodeMailerAdapter = ({
 
   return {
     sendMail,
+    sendCustomEmail,
     sendTemplateEmail,
     sendPasswordResetEmail,
     sendVerificationEmail,
